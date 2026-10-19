@@ -1,0 +1,19 @@
+{
+  "track": "Purdue Grand Prix Track, West Lafayette, IN",
+  "session": {"date": "Thu Oct 8, 2026", "start_local": "6:32 PM EDT", "camera_start_local": "6:32:23 PM EDT"},
+  "paths": {"csv": "data/raw/0968_data.csv", "gopro_gpmf": "data/raw/gopro_gpmf.bin",
+            "json": "data/processed/report_data.json", "web_data": "web/data.js"},
+  "gate": {
+    "_note": "Start/finish line on the pit straight, local metres (x east, y north) from the mean GPS position. direction = travel direction. Move point along direction to nudge the line.",
+    "point": [0.51856234, -42.78820422],
+    "direction": [0.87112658, -0.49105853],
+    "lateral_window_m": [-32, 10],
+    "pit_lane_lateral_m": -5
+  },
+  "caution_min_lap_s": 26.65,
+  "bins": 300,
+  "best_line_top_laps": 3,
+  "n_zones": 5,
+  "zone_half_width_bins": 10,
+  "sync": {"coarse_lag_range_s": [-5, 60], "refine_halfwidth_s": 1.5}
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Purdue Grand Prix Track – Practice Data Report</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>Practice Session Data Report</h1>
+  <div class="sub" id="sub"></div>
+  <div class="kpis" id="kpis"></div>
+
+  <!-- Interactive viewer: map fixed on the left, scrolling data pane on the right -->
+  <section class="split" aria-label="Interactive track viewer">
+    <div class="mapc"><canvas id="mc" role="img" aria-label="Track map"></canvas><div class="lgd" id="lg"></div></div>
+    <div class="pane">
+      <div class="top">
+        <div class="ctl">
+          <span id="ca">
+            <label><input type="checkbox" data-c="push" checked>Push</label>
+            <label><input type="checkbox" data-c="caution" checked>Caution</label>
+            <label><input type="checkbox" data-c="pit" checked>Pit + in/out-laps</label>
+          </span>
+          <span>
+            <label><input type="radio" name="md" value="speed" checked>Speed</label>
+            <label><input type="radio" name="md" value="off">Offset</label>
+            <label><input type="radio" name="md" value="dv">Speed vs best</label>
+            <label><input type="radio" name="md" value="loss">Time lost</label>
+          </span>
+          <select id="hl" aria-label="Highlight lap"></select>
+        </div>
+        <div id="sm"></div>
+        <div id="rd">Hover or tap the map or charts to compare your line with the best line.</div>
+      </div>
+      <h2 class="sec">Along the lap (shaded = loss zones)</h2>
+      <canvas class="ch" id="c1"></canvas><canvas class="ch" id="c2"></canvas><canvas class="ch" id="c3"></canvas>
+      <p class="n" id="note-bl"></p>
+      <h2 class="sec">Where the time is lost</h2>
+      <div class="tw"><table><thead><tr><th>#</th><th>Distance from S/F</th><th>Where</th><th>Type</th><th>Lost s</th><th>Speed down mph</th><th id="zvid">Video</th></tr></thead><tbody id="zt"></tbody></table></div>
+      <p class="n" id="note-zones"></p>
+      <h2 class="sec">Video sync</h2>
+      <p class="n" id="note-sync" style="margin-top:0"></p>
+      <div class="tw"><table><thead><tr><th>Lap</th><th>Type</th><th>Lap s</th><th>Video start</th></tr></thead><tbody id="vt"></tbody></table></div>
+    </div>
+  </section>
+
+  <div class="g">
+    <div class="card"><h2>Lap times</h2><div id="lapbars"></div><p class="n" id="note-laps"></p></div>
+    <div class="card"><h2>Speed trace · best lap vs slowest lap</h2><div id="trace"></div><p class="n" id="note-trace"></p></div>
+  </div>
+  <div class="g">
+    <div class="card"><h2>Exhaust temp (lap avg)</h2><div id="egt"></div><p class="n" id="note-egt"></p></div>
+    <div class="card"><h2>RPM distribution</h2><div id="rpm"></div><p class="n" id="note-rpm"></p></div>
+  </div>
+  <div class="g">
+    <div class="card"><h2>Key takeaways</h2><ul id="take"></ul></div>
+    <div class="card tw"><h2>Lap table</h2>
+      <table><thead><tr><th>Lap</th><th>Type</th><th>Time s</th><th>Top mph</th><th>Avg mph</th><th>Avg RPM</th><th>Max EGT</th><th>Lat g</th></tr></thead><tbody id="laptable"></tbody></table></div>
+  </div>
+  <p class="n" id="foot"></p>
+</main>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
